@@ -8,6 +8,8 @@ import time
 import sys
 from colorama import Fore, Back, Style
 
+log.authenticate()
+
 
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -646,23 +648,20 @@ def main():
                 print("Command: [ " + cmmnd + " ] Not Found!")
             except IndexError:
                 pass
+            list
             
-            # ლოგინი
 class Login:
-    error = None
-    def __init__(self, uid, passw):
-        self.uid = "admin"
-        self.passw = "admin"
-        Login.error = "Enter a valid user id and password"
-
-    def authenticate(self):
-        if (self.uid == logid and self.passw == logpass):
-            print ("Login successful")
+    def __init__(self, id, password):
+        self.id = id
+        self.password = password
+        self.error = "Enter a valid username and password"
+    def check(self):
+        if (self.id == log_id and self.password == log_pass):
+            print("Login successful")
         else:
-            print (Login.error)
-log = Login("", "")
-logid = input("Enter your user ID: ")
-logpass = input("Enter your password: ")
+            print(self.error)
 
-
-log.authenticate()
+log = Login("admin",  "admin")
+log_id = input("Enter your user ID: ")
+log_pass = input("Enter password: ")
+log.check()
